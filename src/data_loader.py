@@ -4,7 +4,7 @@ import kagglehub
 from kagglehub import KaggleDatasetAdapter
 
 DATASET_NAME = "vishalsubbiah/pokemon-images-and-types"
-DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
+DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data"))
 
 
 def download_and_sync_dataset(target_dir=DATA_DIR):
