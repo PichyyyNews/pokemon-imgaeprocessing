@@ -5,8 +5,11 @@ Image processing and classification project using the Pokemon Images and Types d
 ## Dataset
 - **Source**: [Kaggle - Pokemon Images and Types](https://www.kaggle.com/datasets/vishalsubbiah/pokemon-images-and-types) by Vishal Subbiah
 - **Contents**:
-  - `data/pokemon.csv`: Contains metadata including `Name`, `Type1`, `Type2`, and `Evolution`.
-  - `data/images/`: 809 PNG images of Pokemon across multiple generations.
+  - `pokemon.csv`: Contains metadata including `Name`, `Type1`, `Type2`, and `Evolution`.
+  - `images/`: 809 PNG images (120x120 RGBA) across multiple generations.
+
+> [!NOTE]
+> Dataset files (`data/`) are ignored in git tracking to keep the repository lightweight. Use `python src/data_loader.py` to download/sync data locally.
 
 ## Installation
 
@@ -15,26 +18,20 @@ Install required dependencies:
 pip install -r requirements.txt
 ```
 
-## Usage
+## Exploratory Data Analysis (EDA)
+
+Comprehensive exploratory data analysis has been conducted on image properties and pokemon types.
+- 📊 **Read the full report**: [EDA_REPORT.md](EDA_REPORT.md)
+- 📈 **Figures and Charts**: Available in [`reports/figures/`](reports/figures/)
+
+To run the EDA analysis and generate visualizations:
+```bash
+python src/eda.py
+```
+
+## Data Loader
 
 Load dataset using `kagglehub` and inspect the data:
 ```bash
 python src/data_loader.py
-```
-
-### Python Example
-```python
-import kagglehub
-from kagglehub import KaggleDatasetAdapter
-
-file_path = "pokemon.csv"
-
-df = kagglehub.dataset_load(
-    KaggleDatasetAdapter.PANDAS,
-    "vishalsubbiah/pokemon-images-and-types",
-    file_path,
-)
-
-print("First 5 records:")
-print(df.head())
 ```
