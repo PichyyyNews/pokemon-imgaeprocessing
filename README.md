@@ -18,6 +18,17 @@ Install required dependencies:
 pip install -r requirements.txt
 ```
 
+## Data Preprocessing & Augmentation Pipeline
+
+Complete data cleaning, alpha-to-RGB compositing, stratified splitting, and augmentation pipeline.
+- 📘 **Read the Preprocessing Report**: [PREPROCESSING_REPORT.md](PREPROCESSING_REPORT.md)
+- 📊 **Dataset Splits**: Saved in [`reports/splits/`](reports/splits/) (Train: 565, Val: 122, Test: 122)
+
+To run the pipeline and generate PyTorch DataLoaders & visualizations:
+```bash
+python src/preprocessing.py
+```
+
 ## Exploratory Data Analysis (EDA)
 
 Comprehensive exploratory data analysis has been conducted on image properties and pokemon types.
