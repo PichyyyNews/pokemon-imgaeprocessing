@@ -6,28 +6,30 @@ This report details the end-to-end data cleaning, preprocessing, stratified spli
 
 ```mermaid
 graph TD
-    A[Raw Data: pokemon.csv & 809 PNG Sprites] --> B[Data Cleaning & Label Encoding]
-    B --> B1[Multi-Hot Vector: 18 Types]
-    B --> B2[Primary Type Categorical ID: 0-17]
+    A["Raw Data: pokemon.csv & 809 PNG Sprites"] --> B["Data Cleaning & Label Encoding"]
+    B --> B1["Multi-Hot Vector: 18 Types"]
+    B --> B2["Primary Type Categorical ID: 0-17"]
     
-    A --> C[Stratified Splitting]
-    C --> C1[Train Set: 565 samples - 70%]
-    C --> C2[Val Set: 122 samples - 15%]
-    C --> C3[Test Set: 122 samples - 15%]
+    A --> C["Stratified Splitting"]
+    C --> C1["Train Set: 565 samples (70%)"]
+    C --> C2["Val Set: 122 samples (15%)"]
+    C --> C3["Test Set: 122 samples (15%)"]
     
-    C1 --> D[Training Preprocessing & Augmentation]
-    D --> D1[Alpha-to-RGB Compositing with Random/White BG]
-    D --> D2[RandomResizedCrop 120x120 / 224x224]
-    D --> D3[Random Horizontal Flip & Rotation ±15°]
-    D --> D4[Color Jitter: Brightness, Contrast, Saturation]
-    D --> D5[ToTensor & ImageNet Normalization]
+    C1 --> D["Training Preprocessing & Augmentation"]
+    D --> D1["Alpha-to-RGB Compositing (Random/White BG)"]
+    D --> D2["RandomResizedCrop 120x120 / 224x224"]
+    D --> D3["Random Horizontal Flip & Rotation ±15°"]
+    D --> D4["Color Jitter: Brightness, Contrast, Saturation"]
+    D --> D5["ToTensor & ImageNet Normalization"]
     
-    C2 & C3 --> E[Validation & Test Preprocessing]
-    E --> E1[Alpha-to-RGB Compositing with White BG]
-    E --> E2[Deterministic Resize]
-    E --> E3[ToTensor & ImageNet Normalization]
+    C2 --> E["Validation & Test Preprocessing"]
+    C3 --> E
+    E --> E1["Alpha-to-RGB Compositing (White BG)"]
+    E --> E2["Deterministic Resize"]
+    E --> E3["ToTensor & ImageNet Normalization"]
     
-    D5 & E3 --> F[PyTorch DataLoader Batches]
+    D5 --> F["PyTorch DataLoader Batches"]
+    E3 --> F
 ```
 
 ---

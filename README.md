@@ -39,12 +39,12 @@ This repository provides a modular, production-ready image processing foundation
 
 ```mermaid
 graph LR
-    A[Kaggle Dataset<br/>809 RGBA Sprites] --> B[Data Ingestion<br/>data_loader.py]
-    B --> C[Exploratory Data Analysis<br/>eda.py]
-    C --> D[Data Cleaning & Compositing<br/>preprocessing.py]
-    D --> E[Stratified Splitting<br/>Train: 70% | Val: 15% | Test: 15%]
-    E --> F[Augmentation Pipeline<br/>Crop, Flip, Rotate, Jitter, BG]
-    F --> G[PyTorch DataLoaders<br/>Ready for Deep Learning Models]
+    A["Kaggle Dataset<br/>809 RGBA Sprites"] --> B["Data Ingestion<br/>data_loader.py"]
+    B --> C["Exploratory Data Analysis<br/>eda.py"]
+    C --> D["Data Cleaning & Compositing<br/>preprocessing.py"]
+    D --> E["Stratified Splitting<br/>Train: 70% / Val: 15% / Test: 15%"]
+    E --> F["Augmentation Pipeline<br/>Crop, Flip, Rotate, Jitter, BG"]
+    F --> G["PyTorch DataLoaders<br/>Ready for Deep Learning Models"]
 ```
 
 ---
